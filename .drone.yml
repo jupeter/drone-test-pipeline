@@ -9,24 +9,12 @@ steps:
   commands:
   - echo "no to sruu"
 
----
-kind: pipeline
-type: docker
-name: deploy
-
-steps:
-- name: backend
-  image: golang
-  commands:
-  - echo "promote now plzzz"
-
 - name: deploy
   image: golang
   commands:
   - echo "no to sru"
-
-trigger:
-  event:
-  - promote
-  target:
-  - production
+  trigger:
+    event:
+    - promote
+    target:
+    - production
