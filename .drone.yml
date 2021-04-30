@@ -7,11 +7,26 @@ steps:
 - name: backend
   image: golang
   commands:
-  - go build
-  - go test
+  - echo "no to sruu"
 
-- name: frontend
-  image: node
+---
+kind: pipeline
+type: docker
+name: deploy
+
+steps:
+- name: backend
+  image: golang
   commands:
-  - npm install
-  - npm run test
+  - echo "promote now plzzz"
+
+- name: deploy
+  image: golang
+  commands:
+  - echo "no to sru"
+
+trigger:
+  event:
+  - promote
+  target:
+  - production
